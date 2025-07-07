@@ -1,0 +1,10 @@
+2025-07-07 22:26:56,313 - training_pipeline - INFO - -------------------------DataIngestion--------------------------------------
+2025-07-07 22:26:56,313 - training_pipeline - INFO - Entered the start_data_ingestion method of TrainPipeline class
+2025-07-07 22:26:56,412 - training_pipeline - INFO - Got the train_set and test_set
+2025-07-07 22:26:56,412 - training_pipeline - INFO - Exited the start_data_ingestion method of TrainPipeline class
+2025-07-07 22:26:56,514 - DataTransformation - INFO - train and test data loaded
+2025-07-07 22:26:56,528 - DataTransformation - INFO - label encoded
+2025-07-07 22:26:56,530 - DataTransformation - INFO - Shape of input_feature_train_df: (750, 1)
+2025-07-07 22:26:56,531 - DataTransformation - INFO - Preprocessed object loaded
+2025-07-07 22:27:00,674 - DataTransformation - INFO - Train and test data transfoed using Transform object
+2025-07-07 22:27:00,674 - DataTransformation - INFO - Shape of input_feature_train_array: (750, 100)

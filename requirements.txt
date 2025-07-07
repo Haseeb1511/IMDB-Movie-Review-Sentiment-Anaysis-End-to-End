@@ -7,5 +7,7 @@ matplotlib
 nltk
 wordcloud
 dotenv
+dill
+
 from_root
 -e .

@@ -1,0 +1,15 @@
+2025-07-07 23:56:29,271 - training_pipeline - INFO - -------------------------DataIngestion--------------------------------------
+2025-07-07 23:56:29,271 - training_pipeline - INFO - Entered the start_data_ingestion method of TrainPipeline class
+2025-07-07 23:56:29,371 - training_pipeline - INFO - Got the train_set and test_set
+2025-07-07 23:56:29,371 - training_pipeline - INFO - Exited the start_data_ingestion method of TrainPipeline class
+2025-07-07 23:56:29,476 - DataTransformation - INFO - train and test data loaded
+2025-07-07 23:56:29,477 - DataTransformation - INFO - label encoded
+2025-07-07 23:56:29,477 - DataTransformation - INFO - Shape of input_feature_train_df: (750, 1)
+2025-07-07 23:56:29,485 - DataTransformation - INFO - Preprocessed object loaded
+2025-07-07 23:56:32,977 - DataTransformation - INFO - Train and test data transfoed using Transform object
+2025-07-07 23:56:32,977 - DataTransformation - INFO - Shape of input_feature_train_array: (750, 100)
+2025-07-07 23:56:32,977 - DataTransformation - INFO - Train and test array concatenated to save them
+2025-07-07 23:56:32,977 - util.yaml - INFO - Entered the save_object method of utils
+2025-07-07 23:56:32,996 - util.yaml - INFO - Exited the save_object method of utils
+2025-07-07 23:56:33,000 - training_pipeline - INFO - Exited the start data transformation part of train pipeline
+2025-07-07 23:56:33,000 - training_pipeline - INFO - Strt Model training
