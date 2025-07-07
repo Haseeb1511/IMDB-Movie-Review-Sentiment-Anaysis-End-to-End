@@ -1,0 +1,11 @@
+[project]
+name = "src"
+version = "0.0.1"
+description = "IMDB Review sentiment anlaysis End-to-End"
+authors = [{name = "Haseeb manzoor", email = "iamhaseebmanzoor@gmail.com"}]
+
+[tool.setuptools]
+packages = {find = {}}
+
+[tool.setuptools.dynamic]
+dependencies = {file = "requirements.txt"}

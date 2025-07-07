@@ -1,0 +1,10 @@
+dagshub
+mlflow
+ipykernel 
+scikit-learn
+pandas
+matplotlib
+nltk
+wordcloud
+dotenv
+-e .
