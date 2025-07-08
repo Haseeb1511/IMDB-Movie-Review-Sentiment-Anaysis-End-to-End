@@ -10,4 +10,4 @@ docker build -f frontend/Dockerfile.streamlit -t my-streamlit-app ./frontend
 # . is the build context (should match the folder)
 
 ```
-d
+ds
