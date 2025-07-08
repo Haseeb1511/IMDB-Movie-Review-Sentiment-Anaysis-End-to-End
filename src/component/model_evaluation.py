@@ -51,13 +51,18 @@ class ModelEvaluation:
             raise MyException(e,sys) from e
        
         
-    
+    def response_map(self,data):
+        data[TARGET_COLUMN] = data[TARGET_COLUMN].map({"positive":1,"negative":0})
+        return data
 
     def evaluate_model(self):
         try:
             test_df = pd.read_csv(self.data_ingestion_artifact.test_file_path)
+            test_df  = self.response_map(test_df)
+            
             x = test_df.drop(TARGET_COLUMN,axis=1)
             y = test_df[TARGET_COLUMN]
+            
 
             trained_model = load_object(file_path = self.model_trainer_artifact.trained_model_file_path)
 

@@ -35,9 +35,9 @@ class IMDBEstimator:
                                 remove=remove
                                 )
         
-    def predict(self,dataframe:DataFrame):
+    def predict(self,input):
         """This function is used for Prediction using the model from S3"""
         if self.loaded_model is None:
             self.loaded_model = self.load_model()
-        return self.loaded_model.predict(dataframe)
+        return self.loaded_model.predict(input)
     
