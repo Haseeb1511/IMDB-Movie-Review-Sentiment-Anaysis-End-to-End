@@ -1,4 +1,0 @@
-2025-07-07 18:18:16,348 - training_pipeline - INFO - -------------------------DataIngestion--------------------------------------
-2025-07-07 18:18:16,348 - training_pipeline - INFO - Entered the start_data_ingestion method of TrainPipeline class
-2025-07-07 18:18:16,439 - training_pipeline - INFO - Got the train_set and test_set
-2025-07-07 18:18:16,439 - training_pipeline - INFO - Exited the start_data_ingestion method of TrainPipeline class
