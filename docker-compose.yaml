@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  fastapi:
+    image: YOUR_AWS_ACCOUNT_ID.dkr.ecr.YOUR_REGION.amazonaws.com/imdb-fastapi:latest
+    container_name: fastapi_service
+    ports:
+      - "8000:8000"
+    networks:
+      - app_network
+
+  streamlit:
+    image: YOUR_AWS_ACCOUNT_ID.dkr.ecr.YOUR_REGION.amazonaws.com/imdb-streamlit:latest
+    container_name: streamlit_service
+    ports:
+      - "8501:8501"
+    depends_on:
+      - fastapi
+    environment:
+      - API_URL=http://fastapi:8000/predict
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge
+
+
+#docker-compose up --build

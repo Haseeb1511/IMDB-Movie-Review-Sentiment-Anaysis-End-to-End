@@ -1,0 +1,7 @@
+.env
+logs
+myvenv
+artifact
+demo.py
+.gitignore
+src.egg-info

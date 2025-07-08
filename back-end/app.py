@@ -42,5 +42,5 @@ def pred(input: ReviewRequest):
         raise MyException(sys,e) from e
     
 
-if __name__ == "__main__":
-    app_run(app, host="0.0.0.0", port=8000)
+
+  

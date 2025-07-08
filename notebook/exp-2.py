@@ -30,7 +30,7 @@ sw = set(stopwords.words("english"))
 import os
 
 CONFIG = {
-    "data_path":"notebook/IMDB.csv",
+    "data_path":"data/IMDB.csv",
     "test_size": 0.2,
     "mlflow_tracking_uri": os.getenv("DAGSHUB_MLFLOW_TRACKING_URI"),
     "dagshub_repo_owner": os.getenv("DAGSHUB_REPO_OWNER"),
