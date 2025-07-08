@@ -1,8 +1,7 @@
-version: '3.8'
 
 services:
   fastapi:
-    image: YOUR_AWS_ACCOUNT_ID.dkr.ecr.YOUR_REGION.amazonaws.com/imdb-fastapi:latest
+    image: 129543045830.dkr.ecr.ap-southeast-2.amazonaws.com/imdb-fastapi:latest
     container_name: fastapi_service
     ports:
       - "8000:8000"
@@ -10,7 +9,7 @@ services:
       - app_network
 
   streamlit:
-    image: YOUR_AWS_ACCOUNT_ID.dkr.ecr.YOUR_REGION.amazonaws.com/imdb-streamlit:latest
+    image: 129543045830.dkr.ecr.ap-southeast-2.amazonaws.com/imdb-streamlit:latest
     container_name: streamlit_service
     ports:
       - "8501:8501"
@@ -26,4 +25,6 @@ networks:
     driver: bridge
 
 
-#docker-compose up --build
+
+#YOUR_AWS_ACCOUNT_ID.dkr.ecr.YOUR_REGION.amazonaws.com/imdb-fastapi:latest
+# YOUR_AWS_ACCOUNT_ID.dkr.ecr.YOUR_REGION.amazonaws.com/imdb-streamlit:latest
