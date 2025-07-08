@@ -77,16 +77,20 @@ class TrainingPipeline:
     
 #============================================================ModelEval===============================================================
 
-    def start_model_evaluation(self,data_ingestion_artifact,model_trainer_artifac):
-        model_evaluation = ModelEvaluation(
-            data_ingestion_artifact = data_ingestion_artifact,
-            model_eval_config=self.model_eval_config,
-            model_trainer_artifact=model_trainer_artifac
-        )
+    def start_model_evaluation(self,data_ingestion_artifact,model_trainer_artifact):
+        logger.info("Entering start_model_evaluation")
+        try:
+            model_evaluation = ModelEvaluation(
+                model_eval_config=self.model_eval_config,
+                data_ingestion_artifact = data_ingestion_artifact,
+                model_trainer_artifact=model_trainer_artifact
+            )
 
-        model_evaluation_artifact = model_evaluation.initiate_model_evaluation()
-        logger.info("Exited the start_model_evaluation method of TrainPipeline class")
-        return model_evaluation_artifact
+            model_evaluation_artifact = model_evaluation.initiate_model_evaluation()
+            logger.info("Exited the start_model_evaluation method of TrainPipeline class")
+            return model_evaluation_artifact
+        except Exception as e:
+            raise MyException(e, sys) from e
 
 
 #==============================================================ModelPusher=============================================================
@@ -105,29 +109,26 @@ class TrainingPipeline:
             logger.info("Exited the start_model_pusher method of TrainPipeline class")
             return model_pusher_artifact
         except Exception as e:
-            raise MyException(e, sys)
+            raise MyException(e, sys) from e
 
 #===============================Pipeine===================================================
 
-    def run_pipeline(self ) -> None:
-            """This method of TrainPipeline class is responsible for running complete pipeline"""
-            try:
-                data_ingestion_artifact = self.start_data_ingestion()
+    def run_pipeline(self) -> None:
+        """This method of TrainPipeline class is responsible for running complete pipeline"""
+        try:
+            data_ingestion_artifact = self.start_data_ingestion()
 
+            data_transformation_artifact = self.start_data_transformation(data_ingestion_artifact=data_ingestion_artifact)
 
-                data_transformation_artifact = self.start_data_transformation(
-                                data_ingestion_artifact=data_ingestion_artifact)
-                
-                model_trainer_artifact = self.start_model_trainer(data_transformation_artifact=data_transformation_artifact)
+            model_trainer_artifact = self.start_model_trainer(data_transformation_artifact=data_transformation_artifact)
 
-                model_evaluation_artifact = self.start_model_evaluation(data_ingestion_artifact=data_ingestion_artifact,
-                                                                        model_trainer_artifact=model_trainer_artifact)
+            model_evaluation_artifact = self.start_model_evaluation(data_ingestion_artifact=data_ingestion_artifact,model_trainer_artifact=model_trainer_artifact)
 
-                if not model_evaluation_artifact.is_model_accepted:
-                    logger.info(f"Model not accepted.")
-                    return None
-                
-                model_pusher_artifact = self.start_model_pusher(model_evaluation_artifact=model_evaluation_artifact)
-                
-            except Exception as e:
-                raise MyException(e, sys)
+            if not model_evaluation_artifact.is_model_accepted:
+                logger.info(f"Model not accepted.")
+                return None
+
+            model_pusher_artifact = self.start_model_pusher(model_evaluation_artifact=model_evaluation_artifact)
+
+        except Exception as e:
+            raise MyException(e, sys) from e

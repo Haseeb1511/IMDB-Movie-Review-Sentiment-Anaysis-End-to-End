@@ -38,14 +38,19 @@ class ModelEvaluation:
 
     
     def get_best_model(self):
-       """This function help us in getting best model for S3"""
-       bucket_name = self.model_eval_config.bucket_name
-       model_path = self.model_eval_config.s3_model_key_path
-       estimator  = IMDBEstimator(bucket_name=bucket_name,
-                                  model_path=model_path)
-       if estimator.is_model_present():
-           return estimator
-       return None
+        try:
+            """This function help us in getting best model for S3"""
+            bucket_name = self.model_eval_config.bucket_name
+            model_path = self.model_eval_config.s3_model_key_path
+            estimator  = IMDBEstimator(bucket_name=bucket_name,
+                                        model_path=model_path)
+            if estimator.is_model_present(model_path=model_path):
+                return estimator
+            return None
+        except Exception as e:
+            raise MyException(e,sys) from e
+       
+        
     
 
     def evaluate_model(self):
@@ -53,7 +58,6 @@ class ModelEvaluation:
             test_df = pd.read_csv(self.data_ingestion_artifact.test_file_path)
             x = test_df.drop(TARGET_COLUMN,axis=1)
             y = test_df[TARGET_COLUMN]
-        
 
             trained_model = load_object(file_path = self.model_trainer_artifact.trained_model_file_path)
 
@@ -77,7 +81,7 @@ class ModelEvaluation:
                 difference = train_model_accuracy-temp_model_best_score)
         
         except Exception as e:
-            raise MyException(sys,e) from e
+            raise MyException(e,sys) from e
         
 
 

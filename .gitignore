@@ -1,3 +1,6 @@
 .env
 myvenv
 src.egg-info
+aws_secrets.md
+artifact
+logs
