@@ -8,6 +8,7 @@ nltk
 wordcloud
 dotenv
 dill
+mypy-boto3-s3
 
 from_root
 -e .
