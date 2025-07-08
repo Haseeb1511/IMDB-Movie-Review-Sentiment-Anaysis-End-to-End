@@ -65,6 +65,6 @@ jobs:
 
       - name: Pull latest images and restart containers
         run: |
-          docker-compose down
-          docker-compose pull
-          docker-compose up -d --remove-orphans
+          docker compose down
+          docker compose pull
+          docker compose up -d --remove-orphans
