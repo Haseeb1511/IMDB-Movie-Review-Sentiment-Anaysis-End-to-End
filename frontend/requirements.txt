@@ -1,17 +1,5 @@
-dagshub
-mlflow
-ipykernel 
-scikit-learn
-pandas
-matplotlib
-nltk
-wordcloud
-dotenv
-dill
-mypy-boto3-s3
-from_root
-fastapi
 streamlit
-
+requests
+python-dotenv
 
 -e .
