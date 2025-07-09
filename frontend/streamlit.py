@@ -3,6 +3,8 @@ import requests
 
 
 API_URL = "http://fastapi:8000/predict"
+# API_URL = "http://localhost:8000/predict"
+
 
 st.title("IMDB Sentiment Classifier 🎬")
 
