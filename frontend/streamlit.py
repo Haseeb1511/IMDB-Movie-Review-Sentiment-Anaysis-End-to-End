@@ -1,8 +1,8 @@
 import streamlit as st
 import requests
+import os
 
-
-API_URL = "http://fastapi:8000/predict"
+API_URL = os.environ.get("API_URL", "http://localhost:8000/predict")
 # API_URL = "http://localhost:8000/predict"
 
 
