@@ -13,6 +13,8 @@ WORKDIR /app
 # copies your src package too
 COPY ./backend/ .      
 COPY ./src/ ./src/     
+COPY .project-root . 
+
 
 
 RUN pip install --upgrade pip && \
