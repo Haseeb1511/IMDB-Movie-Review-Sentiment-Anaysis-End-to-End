@@ -6,12 +6,13 @@ from src.entity.estimator import MyModel
 import sys
 from pandas import DataFrame
 import pickle
+import pandas as pd
 
 
 
 class IMDBEstimator:
 
-    def __init__(self,bucket_name,model_path,):
+    def __init__(self,bucket_name,model_path):
         self.bucket_name = bucket_name
         self.s3 = SimpleStorageService()
         self.model_path = model_path
@@ -25,7 +26,7 @@ class IMDBEstimator:
     def load_model(self,)->MyModel:
         """This function load the model from S3"""
         return self.s3.load_model(self.model_path,bucket_name=self.bucket_name)
-
+    
     
     def save_model(self,from_file,remove:bool=False)->None:
         """This function save the model to S3"""

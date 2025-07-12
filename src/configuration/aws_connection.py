@@ -32,3 +32,4 @@ class S3Client:
             
             self.s3_client = self.s3_client
             self.s3_resource = self.s3_resource
+

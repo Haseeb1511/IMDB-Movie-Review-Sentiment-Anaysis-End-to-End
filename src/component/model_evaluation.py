@@ -35,7 +35,6 @@ class ModelEvaluation:
         self.data_ingestion_artifact = data_ingestion_artifact
         self.model_trainer_artifact = model_trainer_artifact
         self._schema_config = read_yaml_file(file_path=SCHEMA_FILE_PATH)
-
     
     def get_best_model(self):
         try:
@@ -43,7 +42,8 @@ class ModelEvaluation:
             bucket_name = self.model_eval_config.bucket_name
             model_path = self.model_eval_config.s3_model_key_path
             estimator  = IMDBEstimator(bucket_name=bucket_name,
-                                        model_path=model_path)
+                                        model_path=model_path
+                                        )
             if estimator.is_model_present(model_path=model_path):
                 return estimator
             return None

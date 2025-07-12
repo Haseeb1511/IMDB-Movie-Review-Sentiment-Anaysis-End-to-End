@@ -8,9 +8,8 @@ PIPELINE_NAME: str = ""
 ARTIFACT_DIR: str = "artifact"
 
 
-
-MODEL_FILE_NAME = "pipe.pkl"
-
+# Model file on S3
+MODEL_FILE_NAME = "model/pipe.pkl"
 
 
 TARGET_COLUMN = "sentiment"
@@ -66,4 +65,3 @@ MIN_SAMPLES_SPLIT_RANDOM_STATE: int = 101
 MODEL_EVALUATION_CHANGED_THRESHOLD_SCORE: float = 0.02
 MODEL_BUCKET_NAME = "imdb15112001"
 MODEL_PUSHER_S3_KEY = "model-registry"
-
