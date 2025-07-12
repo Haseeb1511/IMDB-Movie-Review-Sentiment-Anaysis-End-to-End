@@ -46,7 +46,6 @@ class MyModel:
             return predictions
 
         except Exception as e:
-            logging.error("Error occurred in predict method", exc_info=True)
             raise MyException(e, sys) from e
 
 
