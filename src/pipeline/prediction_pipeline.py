@@ -2,7 +2,8 @@ from src.entity.config_entity import PredictionConfig
 from src.entity.s3_estimator import IMDBEstimator
 from src.exception import MyException
 import pandas as pd
-
+from dotenv import load_dotenv
+load_dotenv()
 import sys
 import pandas as pd
 
