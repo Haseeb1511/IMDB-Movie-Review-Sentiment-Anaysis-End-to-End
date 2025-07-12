@@ -5,7 +5,7 @@ from src.pipeline.training_pipeline import TrainingPipeline
 from uvicorn import run as app_run
 from src.pipeline.prediction_pipeline import IMDBClassifier,Data
 from src.exception import MyException
-import os,sys
+import sys
 app = FastAPI()
 
 app.add_middleware(
