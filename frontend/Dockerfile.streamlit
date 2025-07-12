@@ -1,4 +1,4 @@
-FROM python:3.12-slim-buster
+FROM python:3.12-slim
 
 # Environment variable: Don't write .pyc files(__pycache__)
 ENV PYTHONDONTWRITEBYTECODE=1
