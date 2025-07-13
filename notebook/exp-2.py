@@ -26,7 +26,6 @@ nltk.download("wordnet")
 
 wn = WordNetLemmatizer()
 sw = set(stopwords.words("english"))
-
 import os
 
 from src.constant import FILE_KEY
