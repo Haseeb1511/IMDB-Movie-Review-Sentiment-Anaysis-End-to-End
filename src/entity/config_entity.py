@@ -3,6 +3,7 @@ from src.constant import *
 from dataclasses import dataclass
 from datetime import datetime
 
+
 TIMESTAMP: str = datetime.now().strftime("%m_%d_%Y_%H_%M_%S")
 
 @dataclass
@@ -62,3 +63,8 @@ class ModelPusherConfig:
 class PredictionConfig:
     model_file_path: str = MODEL_FILE_NAME
     model_bucket_name: str = MODEL_BUCKET_NAME
+
+@dataclass
+class DataFromS3:
+    data_key_s3:str=FILE_KEY
+

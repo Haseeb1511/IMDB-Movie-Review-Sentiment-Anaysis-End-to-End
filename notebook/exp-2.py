@@ -29,8 +29,11 @@ sw = set(stopwords.words("english"))
 
 import os
 
+from src.constant import FILE_KEY
+from notebook.get_data_from_s3 import fetch_file_from_s3
+data = fetch_file_from_s3(file_key=FILE_KEY)
 CONFIG = {
-    "data_path":"data/IMDB.csv",
+    "data_path":data,
     "test_size": 0.2,
     "mlflow_tracking_uri": os.getenv("DAGSHUB_MLFLOW_TRACKING_URI"),
     "dagshub_repo_owner": os.getenv("DAGSHUB_REPO_OWNER"),
