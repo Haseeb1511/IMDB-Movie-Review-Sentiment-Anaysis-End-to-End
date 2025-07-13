@@ -9,7 +9,6 @@ import sys,os
 
 
 class ModelPusher:
-
     def __init__(self,
                 model_pusher_config:ModelPusherConfig,
                 model_eval_artifact:ModelEvaluationArtifact):
@@ -28,12 +27,17 @@ class ModelPusher:
         try:
             logger.info("Pushing model to S3")
             self.imdb_estimator.save_model(from_file=self.model_eval_artifact.trained_model_path)
+            logger.info("Model successfully pushed to AWS")
 
             model_pusher_artifact = ModelPusherArtifact(
                 bucket_name = self.model_pusher_config.bucket_name,
                 s3_model_path = self.model_pusher_config.s3_model_key_path)
 
-            logger.info("Model successfully pushed to AWS")
             return model_pusher_artifact
         except Exception as e:
             raise MyException(e, sys) from e
+        
+
+#f"runs:/{run.info.run_id}/{self.model_eval_artifact.trained_model_path}":
+# runs: tells MLflow: “Look under a run ID.”
+# {run.info.run_id} is your current MLflow run.
